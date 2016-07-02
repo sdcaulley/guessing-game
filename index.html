@@ -110,7 +110,8 @@
 
       var answer = prompt("Did I work at a comic book store?");
       console.log(answer);
-      if ((answer == "Yes") || (answer == "yes")) {
+      //add error correction
+      if ((answer == "Yes") || (answer == "yes") || (answer == "y") || (answer == "Y")) {
         alert("That is correct, " + userName + "!");
       } else {
         alert("I am sorry, " + userName + ".  The correct answer is yes.");
