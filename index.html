@@ -132,7 +132,20 @@
         alert("I am sorry, " + userName + ".  That is too low.");
       }
 
-      alert("Thank you for playing, " +userName+ ".  You got " +userScore+ "correct answers.")
+      alert("Thank you for playing, " +userName+ ".  You got " +userScore+ " correct answers.")
+
+      var number = prompt("What is my number? Guess a number 1-15.");
+      do {
+        if (number < 9) {
+              number = prompt("That is too low!  Guess again.");
+        } else {
+              number = prompt("That is too high! Guess again.");
+        }
+      } while (number != 9);
+      if (number == 9) {
+        alert("That is correct!");
+      }
+
 
     </script>
   </body>
