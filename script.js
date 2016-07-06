@@ -55,3 +55,19 @@
   if (number == 9) {
     alert("That is correct!");
   }
+
+function getUserName() {
+  var userName = "";
+  while ((userName.trim() == "") && (userName != null)) {
+    userName = prompt("Please tell me your name.");
+  }
+  if (userName =! null) {
+    return  userName;
+  } else {
+    return  "";
+  }
+}
+
+function greetUser(name) {
+  var message = 
+}
