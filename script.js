@@ -48,7 +48,7 @@
   do {
     if (number < 9) {
           number = prompt("That is too low!  Guess again.");
-    } else {
+    } else if (number > 9) {
           number = prompt("That is too high! Guess again.");
     }
   } while (number != 9);
