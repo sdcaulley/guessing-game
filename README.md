@@ -1,9 +1,5 @@
 # guessing-game
 
-This is a basic html web page with biographical data.  Several javascript prompts have been written to ask about what the visitor has read.  The prompt returns correct/incorrect statement and a correct tally at the end.
+This is a basic html web page with biographical data.  At the end of the page are two guessing games. Questions for the games are asked in prompt boxes.  The user's answers and whether they are correct or not is printed to the screen below the button.
 
-There is also a guess my number game at the end.
-
-The javascript for the questions and game are now in a separate .js file.
-
-The javascript for the questions and number game are now in functions.
+The css for the nav box and wrapping the main text around it came from the demo css at CSS Zen Garden (www.csszengarden.com).
