@@ -1,49 +1,98 @@
   var userScore = 0;
-  var userName = prompt("What is your name?","");
-  console.log(userName);
-  alert("Thank you for visiting, " + userName + ".  I hope you enjoy your visit.");
+  var userName = null;
 
-  var answer = prompt("Where did I graduate high school?");
-  console.log(answer);
-  if ((answer == "Kenya") || (answer == "kenya")) {
-    alert("That is correct, " + userName + "!");
-    userScore++;
-  } else {
-    alert("I am sorry, " + userName + ".  The correct answer is Kenya.");
+  function guess() {
+    var answer = document.getElementById("answer");
+    var myInnerHTML = "";
+    console.log(answer);
+
+    if (userName == null) {
+      userName = getUserName();
+    }
+    myInnerHTML = greetUser(userName);
+    myInnerHTML += "Here are your answers: <ol>"
+     if (userName != "") {
+      myInnerHTML += schoolQuestion();
+      myInnerHTML += husbandQuestion();
+      myInnerHTML += storeQuestion();
+      myInnerHTML += dogQuestion();
+    }
+    myInnerHTML += "</ol><p>Congratulations, " +userName+ "!  You have " +userScore+ " correct answers.</p>";
+    answer.innerHTML = myInnerHTML;
   }
 
-  var answer = prompt("Where did I meet my husband?");
-  console.log(answer);
-  if ((answer == "Portland") || (answer == "portland")) {
-    alert("That is correct, " + userName + "!");
-    userScore++;
-  } else {
-    alert("I am sorry, " + userName + ".  The correct answer is Portland.");
+  function getUserName () {
+    var userName = "";
+    while ((userName.trim() == "") && (userName != null)) {
+      userName = prompt("What is your name?","");
+      console.log(userName);
+    }
+    if (userName != null) {
+      return userName;
+    } else {
+      return "";
+    }
   }
 
-  var answer = prompt("Did I work at a comic book store?");
-  console.log(answer);
+  function greetUser(name) {
+    var greeting = "<p>Thank you for visiting, "
+    if (name != "") {
+      greeting += name + "."
+    }
+    greeting += "  I hope you enjoy your visit.</p>";
+    return greeting;
+    console.log(greeting);
+  }
+
+function schoolQuestion() {
+  var userAnswer = prompt("Where did I graduate high school?");
+  console.log(userAnswer);
+  if ((userAnswer == "Kenya") || (userAnswer == "kenya")) {
+    answerString = "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
+    userScore++;
+  } else {
+    answerString = "<li>You said: " +userAnswer+ ".  That is not correct, " +userName+".  The correct answer is Kenya.</li>";  }
+  return answerString;
+}
+
+function husbandQuestion() {
+  var userAnswer = prompt("Where did I meet my husband?");
+  console.log(userAnswer);
+  if ((userAnswer == "Portland") || (userAnswer == "portland")) {
+    answerString = "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
+    userScore++;
+  } else {
+    answerString = "<li>You said: " +userAnswer+ ".  That is not correct, " +userName+".  The correct answer is Portland.</li>";  }
+  return answerString;
+}
+
+function storeQuestion() {
+  var userAnswer = prompt("Did I work at a comic book store?");
+  console.log(userAnswer);
   //add error correction
-  if ((answer == "Yes") || (answer == "yes") || (answer == "YES") || (answer == "y") || (answer == "Y")) {
-    alert("That is correct, " + userName + "!");
+  if ((userAnswer == "Yes") || (userAnswer == "yes") || (userAnswer == "YES") || (userAnswer == "y") || (userAnswer == "Y")) {
+    answerString = "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
     userScore++;
   } else {
-    alert("I am sorry, " + userName + ".  The correct answer is yes.");
-  }
+    answerString = "<li>You said: " +userAnswer+ ".  That is not correct, " +userName+".  The correct answer is yes.</li>";  }
+  return answerString;
+}
 
-  var answer = prompt("How many dogs do I have?");
-  console.log(answer);
-  if (answer == 2) {
-    alert("That is correct, " + userName + "!");
+function dogQuestion() {
+  var userAnswer = prompt("How many dogs do I have?");
+  console.log(userAnswer);
+  if (userAnswer == 2) {
+    answerString = "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
     userScore++;
-  } else if (answer > 2) {
-    alert("I am sorry, " + userName + ".  That is too high.");
-  } else if (answer < 2) {
-    alert("I am sorry, " + userName + ".  That is too low.");
+  } else if (userAnswer > 2) {
+    answerString = "<li>You said: " +userAnswer+ "I am sorry, " + userName + ".  That is too high.</li>";
+  } else if (userAnswer < 2) {
+    answerString = "<li>You said: " +userAnswer+ "I am sorry, " + userName + ".  That is too low.</li>";
   }
+  return answerString;
+}
 
-  alert("Thank you for playing, " +userName+ ".  You got " +userScore+ " correct answers.")
-
+function guessNumber() {
   var number = prompt("What is my number? Guess a number 1-15.");
   do {
     if (number < 9) {
@@ -53,21 +102,6 @@
     }
   } while (number != 9);
   if (number == 9) {
-    alert("That is correct!");
+    numGame.innerHTML = "You said: " +number+ ".  That is correct, " +userName+"!";
   }
-
-function getUserName() {
-  var userName = "";
-  while ((userName.trim() == "") && (userName != null)) {
-    userName = prompt("Please tell me your name.");
-  }
-  if (userName =! null) {
-    return  userName;
-  } else {
-    return  "";
-  }
-}
-
-function greetUser(name) {
-  var message = 
 }
