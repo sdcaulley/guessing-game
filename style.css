@@ -1,0 +1,44 @@
+h1 {
+  text-align: center;
+  color: #660066;
+  background-color: #f2e6ff;
+}
+
+h2 {
+  color: #003300;
+}
+
+h3 {
+  color: #990000;
+}
+
+h4 {
+  color: #b300b3;
+}
+
+nav {
+  clear: both;
+	margin: 20px 20px 20px 10px;
+	width: 200px;
+	float: left;
+  background-color: #f2e6ff;
+}
+
+a:link {
+  text-decoration: none;
+  color: #000080;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#text {
+  clear: right;
+	padding: 0px 10px 0 10px;
+  background-color: #e6ffff;
+	}
+
+#games {
+  background-color: #f2e6ff;
+}
