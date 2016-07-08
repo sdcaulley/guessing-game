@@ -12,12 +12,11 @@
     myInnerHTML = greetUser(userName);
     myInnerHTML += "Here are your answers: <ol>"
      if (userName != "") {
-      myInnerHTML += schoolQuestion();
-      myInnerHTML += husbandQuestion();
-      myInnerHTML += storeQuestion();
+      myInnerHTML += questionLoop();
       myInnerHTML += dogQuestion();
     }
     myInnerHTML += "</ol><p>Congratulations, " +userName+ "!  You have " +userScore+ " correct answers.</p>";
+    myInnerHTML += guessNumber();
     answer.innerHTML = myInnerHTML;
   }
 
@@ -44,39 +43,22 @@
     console.log(greeting);
   }
 
-function schoolQuestion() {
-  var userAnswer = prompt("Where did I graduate high school?");
-  console.log(userAnswer);
-  if ((userAnswer == "Kenya") || (userAnswer == "kenya")) {
-    answerString = "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
-    userScore++;
-  } else {
-    answerString = "<li>You said: " +userAnswer+ ".  That is not correct, " +userName+".  The correct answer is Kenya.</li>";  }
-  return answerString;
-}
+function questionLoop() {
+  var arrQuestion = ["Where did I graduate high school?","Where did I meet my husband?","Did I work at a comic book store?"];
+  var arrAnswer = ["Kenya","Portland","Yes"];
+  var answerString = "Here are your answers to the game: <ol>";
 
-function husbandQuestion() {
-  var userAnswer = prompt("Where did I meet my husband?");
-  console.log(userAnswer);
-  if ((userAnswer == "Portland") || (userAnswer == "portland")) {
-    answerString = "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
-    userScore++;
-  } else {
-    answerString = "<li>You said: " +userAnswer+ ".  That is not correct, " +userName+".  The correct answer is Portland.</li>";  }
+  for (i = 0; i < arrQuestion.length; i++) {
+    var userAnswer = prompt(arrQuestion[i]);
+    if (userAnswer.toLowerCase() == arrAnswer[i].toLowerCase()) {
+      answerString += "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
+      userScore++;
+    } else {
+      answerString += "<li>You said: " +userAnswer+ ".  That is not correct, " +userName+".  The correct answer is " + arrAnswer[i] + ".</li>";
+      }
+    }
   return answerString;
-}
-
-function storeQuestion() {
-  var userAnswer = prompt("Did I work at a comic book store?");
-  console.log(userAnswer);
-  //add error correction
-  if ((userAnswer == "Yes") || (userAnswer == "yes") || (userAnswer == "YES") || (userAnswer == "y") || (userAnswer == "Y")) {
-    answerString = "<li>You said: " +userAnswer+ ".  That is correct, " +userName+"!</li>";
-    userScore++;
-  } else {
-    answerString = "<li>You said: " +userAnswer+ ".  That is not correct, " +userName+".  The correct answer is yes.</li>";  }
-  return answerString;
-}
+  }
 
 function dogQuestion() {
   var userAnswer = prompt("How many dogs do I have?");
@@ -102,6 +84,26 @@ function guessNumber() {
     }
   } while (number != 9);
   if (number == 9) {
-    numGame.innerHTML = "You said: " +number+ ".  That is correct, " +userName+"!";
+     answerString = "You said: " +number+ ".  That is correct, " +userName+"!";
   }
+  return answerString;
+}
+
+function bonusQuestion() {
+  var match = false;
+  var arrAnswer = ["James", "Brent", "Maria"];
+  var userAnswer = prompt("Name one of my siblings.");
+  for (i = 0; i < arrAnswer.length; i++) {
+    if (userAnswer.toLowerCase() == arrAnswer[i].toLowerCase()) {
+      match = true;
+      break;
+    }
+  }
+  var statement = document.getElementById("bonus");
+  if(match) {
+    statement = "You said: " +userAnswer+ " . That is correct " +userName+ "."
+  } else {
+    statement = "You said: " +userAnswer+ " . That is not correct " +userName+ " ."
+  }
+  bonus.innerHTML = statement;
 }
