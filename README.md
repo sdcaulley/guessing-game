@@ -5,3 +5,5 @@ This is a basic html web page with biographical data.  Several javascript prompt
 There is also a guess my number game at the end.
 
 The javascript for the questions and game are now in a separate .js file.
+
+The javascript for the questions and number game are now in functions.
