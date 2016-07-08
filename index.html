@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>All About Stephanie</title>
   </head>
   <body>
     <h1>All About Stephanie</h1>
-    <h3 id="top">Table of Contents</h3>
-      <ul>
+    <nav><h3>Table of Contents</h3>
+      <ul id="nav">
         <li><a href="#bio">Biography</a></li>
           <ul>
             <li><a href="#early">The Early Years</a></li>
@@ -30,7 +31,8 @@
             <li><a href="#tech">Technical Training</a></li>
           </ul>
         <li><a href="#goals">Goals</a></li>
-      </ul>
+      </ul></nav>
+    <div id="text">
     <h2 id="bio">Biography</h2>
       <h3 id="early">The Early Years</h3>
       <p>I was born in Tenessee and lived there until I was 4 years old.  During that time my parents adopted my younger brother, James.  We then moved to Myrtle Point, Oregon.  It is a little logging community between Roseburg and Coos Bay.  We lived there until my 10th birthday.  I attended kindergarten, first and second grades at the local schools.  Third grade I was homeschooled as we prepared to move to Africa.</p>
@@ -86,13 +88,15 @@
         <li>Create a line of custom fit patterns.</li>
       </ul>
       <a href="#top">Return to Top</a>
+    </div>
+    <div id="games">
       <script src="script.js"></script>
       <h2>Gussing Game</h2>
         <input type="button" value="Let's Play a Game" onclick="guess()">
         <p id="answer"></p>
-      <h2>Guess My Number</h2>
-        <input type="button" value="Guess My Number" onclick="guessNumber()">
-        <p id="numGame"></p>
-
+      <h2>Bonus Question</h2>
+        <input type="button" value="Bonus Question" onclick="bonusQuestion()">
+        <p id="bonus"></p>
+    </div>
   </body>
 </html>
