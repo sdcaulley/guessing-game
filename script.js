@@ -1,48 +1,57 @@
-  var userScore = 0;
-  var userName = null;
+// global variables needed by all functions
+var userScore = 0;
+var userName = null;
 
-  function guess() {
-    var answer = document.getElementById("answer");
-    var myInnerHTML = "";
-    console.log(answer);
+//master game function
+function guess() {
+  var answer = document.getElementById("answer");
+  var myInnerHTML = "";
+  console.log(answer);
 
-    if (userName == null) {
-      userName = getUserName();
-    }
-    myInnerHTML = greetUser(userName);
-    myInnerHTML += "Here are your answers: <ol>"
-     if (userName != "") {
-      myInnerHTML += questionLoop();
-      myInnerHTML += dogQuestion();
-    }
-    myInnerHTML += "</ol><p>Congratulations, " +userName+ "!  You have " +userScore+ " correct answers.</p>";
-    myInnerHTML += guessNumber();
-    answer.innerHTML = myInnerHTML;
+  if (userName == null) {
+    userName = getUserName();
   }
 
-  function getUserName () {
-    var userName = "";
-    while ((userName.trim() == "") && (userName != null)) {
-      userName = prompt("What is your name?","");
-      console.log(userName);
-    }
-    if (userName != null) {
-      return userName;
-    } else {
-      return "";
-    }
+  myInnerHTML = greetUser(userName);
+  myInnerHTML += "Here are your answers: <ol>"
+
+  if (userName != "") {
+    myInnerHTML += questionLoop();
+    myInnerHTML += dogQuestion();
   }
 
-  function greetUser(name) {
-    var greeting = "<p>Thank you for visiting, "
-    if (name != "") {
-      greeting += name + "."
-    }
-    greeting += "  I hope you enjoy your visit.</p>";
-    return greeting;
-    console.log(greeting);
-  }
+  myInnerHTML += "</ol><p>Congratulations, " +userName+ "!  You have " +userScore+ " correct answers.</p>";
+  myInnerHTML += guessNumber();
 
+  answer.innerHTML = myInnerHTML;
+}
+
+// ask for the user's name
+function getUserName () {
+  var userName = "";
+  while ((userName.trim() == "") && (userName != null)) {
+    userName = prompt("What is your name?","");
+    console.log(userName);
+  }
+  if (userName != null) {
+    return userName;
+  } else {
+    return "";
+  }
+}
+
+// greet the user
+function greetUser(name) {
+  var greeting = "<p>Thank you for visiting, "
+  if (name != "") {
+    greeting += name + "."
+  }
+  greeting += "  I hope you enjoy your visit.</p>";
+  return greeting;
+  console.log(greeting);
+}
+
+// first three qustions in an array/loop set up
 function questionLoop() {
   var arrQuestion = ["Where did I graduate high school?","Where did I meet my husband?","Did I work at a comic book store?"];
   var arrAnswer = ["Kenya","Portland","Yes"];
@@ -58,8 +67,9 @@ function questionLoop() {
       }
     }
   return answerString;
-  }
+}
 
+// guess the number of dogs with three comparisons for answers
 function dogQuestion() {
   var userAnswer = prompt("How many dogs do I have?");
   console.log(userAnswer);
@@ -74,6 +84,7 @@ function dogQuestion() {
   return answerString;
 }
 
+// guess my number
 function guessNumber() {
   var number = prompt("What is my number? Guess a number 1-15.");
   do {
@@ -89,6 +100,7 @@ function guessNumber() {
   return answerString;
 }
 
+// question with three correct ansewers.  loop through array
 function bonusQuestion() {
   var match = false;
   var arrAnswer = ["James", "Brent", "Maria"];
