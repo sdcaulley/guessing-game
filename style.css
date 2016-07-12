@@ -1,7 +1,13 @@
+html {
+  font-family: 'Bad Script', cursive;
+  font-size: 20px;
+}
+
 h1 {
   text-align: center;
   color: #660066;
-  background-color: #f2e6ff;
+  background-color: #e6ffff;
+  border-radius: 10px;
 }
 
 h2 {
@@ -17,13 +23,8 @@ h4 {
 }
 
 nav {
-  clear: both;
-	margin: 20px 20px 20px 10px;
-	width: 200px;
-	float: left;
   background-color: #f2e6ff;
-  border-radius: 10px;
-  padding: 5px;
+  border-radius: 25px;
 }
 
 a:link {
@@ -35,12 +36,65 @@ a:hover {
   text-decoration: underline;
 }
 
+img {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+li.correct {
+  list-style: inherit;
+}
+
+li.uncorrect {
+  list-style: inherit;
+}
+
+.menu {
+  display: inline-block;
+  padding: 10px;
+  border: 2.5px solid #000080;
+  border-radius: 5px;
+}
+
+.correct {
+  color: green;
+}
+
+.uncorrect {
+  color: red;
+}
+
+.button {
+    background-color: #a34dff;
+    border: 1px #0c001a;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
 #text {
   clear: right;
 	padding: 0px 10px 0 10px;
   background-color: #e6ffff;
-	}
+  border-radius: 25px;
+  text-align: center;
+}
 
 #games {
   background-color: #f2e6ff;
+  text-align: center;
+  list-style: inside;
+  border-radius: 25px;
+}
+
+#toc {
+  text-align: center;
 }
