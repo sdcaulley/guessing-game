@@ -46,6 +46,7 @@ function greetUser(name) {
   return greeting;
 }
 
+//object constructor
 function gameQuestion(gameQuestion, gameAnswer, answerType, gameImage) {
   this.gameQuestion = gameQuestion;
   this.gameAnswer = gameAnswer;
@@ -70,18 +71,18 @@ function gameQuestion(gameQuestion, gameAnswer, answerType, gameImage) {
       default:
         answerString += "I did not understand your answer " +userName+ " .";
     }
-
+    //check single answers
     function checkSingle(theirAnswer,rightAnswer, image) {
       var myString = "";
       if (theirAnswer.toLowerCase() == rightAnswer.toLowerCase()) {
-        myString = "<li>You said: " +theirAnswer+ ".  That is correct, " +userName+"!" +image+ "</li>";
+        myString = "<li class='correct'>You said: " +theirAnswer+ ".  That is correct, " +userName+"!<br>" +image+ "<br></li>";
         userScore++;
       } else {
-        myString = "<li>You said: " +theirAnswer+ ".  That is not correct, " +userName+".  The correct answer is " + rightAnswer + ".</li>";
+        myString = "<li class='uncorrect'>You said: " +theirAnswer+ ".  That is not correct, " +userName+".  The correct answer is " + rightAnswer + ".</li>";
       }
       return myString;
     }
-
+    //check comparative questioins
     function checkNumber(theirAnswer, rightAnswer, image) {
       var myString = "";
       do {
@@ -92,12 +93,12 @@ function gameQuestion(gameQuestion, gameAnswer, answerType, gameImage) {
         }
       } while (theirAnswer != rightAnswer);
       if (theirAnswer == rightAnswer) {
-         myString = "<li>You said: " +theirAnswer+ ".  That is correct, " +userName+"!" +image+ "</li>";
+         myString = "<li class='correct'>You said: " +theirAnswer+ ".  That is correct, " +userName+"!<br>" +image+ "<br></li>";
          userScore++;
       }
       return myString;
     }
-
+    //check answers with multiple correct
     function checkMulti(theirAnswer, rightAnswer, image) {
       var myString = "";
       var match = false;
@@ -108,10 +109,10 @@ function gameQuestion(gameQuestion, gameAnswer, answerType, gameImage) {
         }
       }
       if(match) {
-        myString = "<li>You said: " +theirAnswer+ ". That is correct " +userName+ "." +image+ "</li>"
+        myString = "<li class='correct'>You said: " +theirAnswer+ ". That is correct, " +userName+ ".<br>" +image+ "<br></li>"
         userScore++;
       } else {
-        myString = "<li>You said: " +theirAnswer+ ". That is not correct " +userName+ ".</li>"
+        myString = "<li class='uncorrect'>You said: " +theirAnswer+ ". That is not correct, " +userName+ ".</li>"
       }
       return myString;
     }
@@ -120,13 +121,20 @@ function gameQuestion(gameQuestion, gameAnswer, answerType, gameImage) {
   }
 }
 
-var school = new gameQuestion("Where did I graduate from high school?", "Kenya", "single", "<img src="images/RiftValley200x150.jpg" alt="The entrance sign to my boarding school." title="Rift Valley Academy">");
-var husband = new gameQuestion("Where did I meet my husband?", "Portland", "single", "<img src="images/brian_weding200x265.JPG" alt="My husband at our wedding." title="Wedding Finery">");
-var comic = new gameQuestion("Did I work at a comic book store?", ["Yes", "Y"], "multi",);
-var dogs = new gameQuestion("How many dogs do I have?", 2, "number", "<img src="images/dogs_on_the_go200x150.jpg" alt="Tux and Gumdrop on a car adventure." title="dogs on the go"");
-var guessNum = new gameQuestion("What is my number? Guess a number 1-15.", 9, "number");
-var siblings = new gameQuestion("Name one of my siblings.", ["James", "Brent", "Maria"], "multi", "<img src="images/WinterSchoolUniforms200x269.JPG" alt="My siblings in winter school uniforms in South Africa." title="Winter School Uniforms">");
+//create objects
+var school = new gameQuestion("Where did I graduate from high school?", "Kenya", "single", "<img src='images/RiftValley200x150.jpg' alt='The entrance sign to my boarding school.' title='Rift Valley Academy'>");
 
+var husband = new gameQuestion("Where did I meet my husband?", "Portland", "single", "<img src='images/brian_weding200x265.JPG' alt='My husband at our wedding.' title='Wedding Finery'>");
+
+var comic = new gameQuestion("Did I work at a comic book store?", ["Yes", "Y"], "multi", "<img src='images/comic_book_cover.jpg' alt='Cover to a ficticious comic book' title='Comic Book Cover'>");
+
+var dogs = new gameQuestion("How many dogs do I have?", 2, "number", "<img src='images/dogs_on_the_go200x150.jpg' alt='Tux and Gumdrop on a car adventure.' title='dogs on the go'>");
+
+var guessNum = new gameQuestion("What is my number? Guess a number 1-15.", 9, "number", "<img src='images/kablam-Number-Animals-9.jpg' alt='The number 9' title='The Number 9'>");
+
+var siblings = new gameQuestion("Name one of my siblings.", ["James", "Brent", "Maria"], "multi", "<img src='images/WinterSchoolUniforms200x269.JPG' alt='My siblings in winter school uniforms in South Africa.' title='Winter School Uniforms'>");
+
+//call object method
 function myGame() {
   var answerString = "";
   var myGameArr = [school, husband, comic, dogs, guessNum, siblings];
