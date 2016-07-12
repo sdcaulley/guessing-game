@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>All About Stephanie</title>
   </head>
@@ -8,16 +9,16 @@
   <body>
     <h1>All About Stephanie</h1>
 
-    <nav><h3>Table of Contents</h3>
+    <nav><h3 id="toc">Table of Contents</h3>
       <ul id="nav">
-        <li><a href="#bio">Biography</a></li>
+        <div class="menu"><li><a href="#bio">Biography</a></li>
           <ul>
             <li><a href="#early">The Early Years</a></li>
             <li><a href="#africa">Africa</a></li>
             <li><a href="#army">Army Years</a></li>
             <li><a href="#portland">Portland Til Now</a></li>
-          </ul>
-        <li><a href="#experience">Experience</a></li>
+          </ul></div>
+        <div class="menu"><li><a href="#experience">Experience</a></li>
           <ul>
             <li><a href="#ncc">Northwest Christian College</a></li>
             <li><a href="#military">Army: Active and National Guard</a></li>
@@ -26,14 +27,14 @@
             <li><a href="#standard">Standard Insurance</a></li>
             <li><a href="#seuplift">SE Uplift Neighborhood Coalition</a></li>
             <li><a href="#ugm">Union Gospel Mission</a></li>
-          </ul>
-        <li><a href="#edu">Education</a></li>
+          </ul></div>
+        <div class="menu"><li><a href="#edu">Education</a></li>
           <ul>
             <li><a href="#college">College</a></li>
             <li><a href="#tech">Technical Training</a></li>
-          </ul>
-        <li><a href="#goals">Goals</a></li>
-      </ul></nav>
+          </ul></div>
+        <div class="menu"><li><a href="#goals">Goals</a></li>
+      </ul></div></nav>
 
     <div id="text">
     <h2 id="bio">Biography</h2>
@@ -109,8 +110,8 @@
     <div id="games">
       <script src="script.js"></script>
       <h2>Gussing Game</h2>
-        <input type="button" value="Let's Play a Game" onclick="guess()">
         <p id="answer"></p>
+        <input type="button" class="button" value="Let's Play a Game" onclick="guess()">
     </div>
   </body>
 </html>
